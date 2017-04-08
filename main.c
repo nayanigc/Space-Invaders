@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <termio.h>
+#include "game.h"
+#include "load.h"
 
 int mode_non_canonique(struct termios* old_term){
 	struct termios new_term;
@@ -34,7 +36,15 @@ int main(int argc, char *argv[]){
 	struct termios term;
 	if(mode_non_canonique(&term) == -1) return EXIT_FAILURE;
 	
+	niveau n0;
+	/*load_niveau("mods/mod1/niveaux/0", &n0);
+	//print_niveau(&n0);
 	
+	vaisseau_type v0;
+	load_vaisseau("mods/mod1/niveaux/vaisseaux/0", &v0);
+	//print_vaisseau(&v0);*/
+
+	play(&n0);
 
 	if(restaurer_mode_canonique(&term) == -1) return EXIT_FAILURE;
 	return EXIT_SUCCESS;
