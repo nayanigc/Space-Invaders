@@ -1,5 +1,5 @@
 EXEC=main.exe
-SOURCES=load.c game.c main.c
+SOURCES=load.c game.c main.c lecture.c
 OBJECTS=$(SOURCES:.c=.o)
 CC=gcc
 CFLAGS=-std=gnu99 -Wall -Werror

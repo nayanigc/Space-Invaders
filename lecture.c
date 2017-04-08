@@ -1,19 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <dirent.h>
-#include <errno.h>
 
-//DEFINITION D'UNE LISTE pour stocket les éléments d'un repertoire
-typedef struct list_t {
-	char *name;
-	int is_dir;
-	struct list_t *next;
-}list_t;
+#include "lecture.h"
 
+
+/*TODO faire une fonction qui lance le jeu en affichant un menu contenant
+       la liste des mods.
+       Elle sera appelé directement dans le main */
+
+/*TODO faire une fonction qui prend un nom de mod en paramètre et qui créer 
+       une structure mod (voir lecture.h) puis appel la fonction play pour le 
+       premier niveau du mod. Lorsque la fonction play return, lance le deuxieme
+       niveau ect..
+       Cette fonction sera appelée lorsque l'utilisateur sélectionne le mod dans
+       leqeuel il veut jouer */ 
 
 //PARCOURS RECURSIF DES REPERTOIRES
 int recursive_dir (char *root, char *mods) { // root : repertoire qu'on avait avant
@@ -136,8 +134,9 @@ int recursive_dir (char *root, char *mods) { // root : repertoire qu'on avait av
 	return 0;
 }
 
-
+/*
 int main (int argc, char **argv) {
 	if (argc >= 1) recursive_dir (NULL, argv[1]);
 	return EXIT_SUCCESS;
 }
+*/
