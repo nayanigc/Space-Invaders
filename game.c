@@ -1,13 +1,39 @@
 #include "game.h"
 
+int play(niveau* niv, mod* mod){
 
-int play(niveau* niv){
+	plateau plat;
+	plat.nombre_vaisseaux = 0;
+	plat.vaisseaux = malloc(niv->nombre_vaisseaux * sizeof(vaisseau));
+
+	int time = 0;
 	char buffer[1024];
 	struct pollfd fds[1];
 	int timeout_msecs=-1;
 	fds[0].fd = 0;
 	fds[0].events=POLLIN;
 	while(true){
+
+		//TODO Gérer les index out of bound
+		//TODO découper en fonctions
+
+		for(int i = 0; i < niv->nombre_app; i++){
+			if(niv->apps[i].temps == time){
+				vaisseau v;
+				v.type = mod->types[niv->apps[i].type];
+				v.pos_x = niv->apps[i].pos_x;
+				v.pos_y = niv->apps[i].pos_y;
+				v.nombre_vie = mod->types[niv->apps[i].type].nombre_vie;
+
+				plat.vaisseaux[plat.nombre_vaisseaux] = v;
+				plat.nombre_vaisseaux++;
+			}
+		}
+
+		//Remplissage du tableaux plat.cases grâce à la liste des vaisseaux
+
+		//Affichage
+
 		int res = poll(fds,1,timeout_msecs);
 		if (res>0){
 			if (fds[0].revents & POLLIN){

@@ -10,6 +10,8 @@
 #include <dirent.h>
 #include <errno.h>
 
+#include "load.h"
+
 //DEFINITION D'UNE LISTE pour stocket les éléments d'un repertoire
 typedef struct list_t {
 	char *name;

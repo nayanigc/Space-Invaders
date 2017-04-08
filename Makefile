@@ -9,8 +9,10 @@ CFLAGS=-std=gnu99 -Wall -Werror
 default: $(EXEC)
  
 load.o: load.c load.h
-game.o: game.c game.h
+game.o: game.c game.h load.h lecture.h
+lecture.o: lecture.c lecture.h load.h
 main.o: main.c load.c
+
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
  
