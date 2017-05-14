@@ -4,7 +4,9 @@
 #include <termio.h>
 #include "game.h"
 #include "load.h"
+
 #include "menu.h"
+
 
 int mode_non_canonique(struct termios* old_term){
 	struct termios new_term;
@@ -37,12 +39,7 @@ int main(int argc, char *argv[]){
 	struct termios term;
 	if(mode_non_canonique(&term) == -1) return EXIT_FAILURE;
 
-	/*mod m;
-	load_mod("mod1", &m);
-	*/
 	lauch_menu();
-
-	//play(&m, &m.niveaux[0]);
 
 	if(restaurer_mode_canonique(&term) == -1) return EXIT_FAILURE;
 	return EXIT_SUCCESS;
