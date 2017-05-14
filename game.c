@@ -294,6 +294,7 @@ void fire_shot(plateau* plat){
 	s->last_move = get_current_time();
 	s->puissance = v->type.puissance_tir;
 	s->dir = HAUT;
+
 	plat->shots[plat->nombre_shots] = *s;
 	plat->nombre_shots++;
 }
