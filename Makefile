@@ -1,17 +1,17 @@
 EXEC=main.exe
-SOURCES=load.c game.c main.c lecture.c
+SOURCES=load.c game.c main.c menu.c
 OBJECTS=$(SOURCES:.c=.o)
 CC=gcc
-CFLAGS=-std=gnu99 -Wall -Werror
+CFLAGS=-std=gnu99 -Wall -Werror -lm
   
 .PHONY: default clean
  
 default: $(EXEC)
  
 load.o: load.c load.h
-game.o: game.c game.h load.h lecture.h
-lecture.o: lecture.c lecture.h load.h
-main.o: main.c load.c
+game.o: game.c game.h load.h menu.h
+menu.o: menu.c menu.h load.h game.h
+main.o: main.c game.h load.h menu.h
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
