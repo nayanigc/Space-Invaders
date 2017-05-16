@@ -374,7 +374,11 @@ bool play(mod* mod, niveau* niv){
 	fds[0].events=POLLIN;
 	int timeout_msecs = 100;
 
+<<<<<<< HEAD
 	//Conteint Le temps actuel
+=======
+	//Contient Le temps actuel
+>>>>>>> 2f8d6a768661049f587ad7b46e6241ef37b224da
 	long current_time = 0;
 
 	//Contient le temps lors du dernier appel a get_current_time 
