@@ -446,8 +446,8 @@ bool play(mod* mod, niveau* niv){
 	}
 
 	//Libère la mémoire du plateau
-	delete_plat(plat);
-
+	//delete_plat(plat);
+	//write(STDOUT_FILENO, "niveau suivant", 14);
 	return win;
 }
 
